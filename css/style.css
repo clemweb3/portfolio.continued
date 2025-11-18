@@ -11,7 +11,7 @@ body {
 .hero-title {
     font-size: 100px;
     font-weight: 700;
-    color: #f88aca;
+    color: #050621;
 }
 
 .hero-sub {
@@ -40,7 +40,7 @@ body {
 }
 
 .card:hover {
-    border-color: #8AB4F8;
+    border-color: #070f1c;
     transform: translateY(-5px);
 }
 

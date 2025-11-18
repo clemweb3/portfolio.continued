@@ -9,22 +9,22 @@ body {
 }
 
 .hero-title {
-    font-size: 52px;
+    font-size: 100px;
     font-weight: 700;
-    color: #8AB4F8;
+    color: #f88aca;
 }
 
 .hero-sub {
     font-size: 22px;
     margin-top: 10px;
     margin-bottom: 20px;
-    color: #AECBFA;
+    color: #010e21;
 }
 
 .hero-text {
     max-width: 650px;
     line-height: 1.6;
-    color: #D8DEE9;
+    color: #f6f8fb;
 }
 
 .section-title {

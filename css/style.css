@@ -1,50 +1,38 @@
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: #0A0F1F;
+
+.typewriter {
+    overflow: hidden;
+    white-space: nowrap;
+    letter-spacing: 1px;
+}
+
+.cursor {
+    display: inline-block;
+    margin-left: 3px;
+    animation: blink 0.9s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Updated hero palette */
+.hero-title {
+    font-size: 3.8rem;
+    font-weight: 700;
     color: #E5E9F0;
 }
 
-.hero-section {
-    padding-top: 130px;
-}
-
-.hero-title {
-    font-size: 100px;
-    font-weight: 700;
-    color: #050621;
-}
-
 .hero-sub {
-    font-size: 22px;
+    font-size: 1.4rem;
+    color: #7AE2CF;
     margin-top: 10px;
     margin-bottom: 20px;
-    color: #010e21;
 }
 
 .hero-text {
     max-width: 650px;
     line-height: 1.6;
-    color: #f6f8fb;
-}
-
-.section-title {
-    font-size: 32px;
-    border-left: 6px solid #8AB4F8;
-    padding-left: 12px;
-}
-
-.card {
-    background-color: #111627;
-    border: 1px solid #202A44;
-    transition: 0.2s;
-}
-
-.card:hover {
-    border-color: #070f1c;
-    transform: translateY(-5px);
-}
-
-.author-text {
-    max-width: 700px;
-    line-height: 1.7;
+    color: #CCD6F6;
 }

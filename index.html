@@ -1,24 +1,172 @@
-<section id="home" class="w3-container hero-section w3-padding-64" style="padding-top:128px !important;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Portfolio - Tech</title>
 
-    <h1 class="hero-title">Hi, I’m Shania.</h1>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-    <p class="hero-sub typewriter">
-        I make complexity readable<span class="cursor">|</span>
-    </p>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    <p class="hero-text">
-        I thrive in fast paced work where clarity matters and results can’t wait.
-        My background crosses business intelligence, data science, and business analysis.
-        I enjoy work that’s both technical and people-centered because insights only matter when someone understands them.
-        I focus on structure, iteration, and decisions that move things forward.
-    </p>
+    <style>
+        :root {
+            /* Custom Tech Palette */
+            --primary-dark: #06202B; /* Darkest Blue for Background */
+            --secondary-dark: #001C30; /* Darker Blue for Elements/Navbar */
+            --text-light: #DAFFFB; /* Brightest light color for text */
+            --accent-light: #64CCC5; /* Light Teal/Cyan for main accent */
+            --accent-mid: #176B87; /* Mid Blue for gradient/shadow */
+            --accent-vibrant: #7AE2CF; /* Very vibrant accent for glow */
+        }
 
-    <div class="w3-margin-top">
-        <a href="#cases" class="w3-button w3-teal w3-round w3-large w3-margin-right">View Case Studies</a>
-        <a href="assets/resume.pdf" class="w3-button w3-white w3-border w3-round w3-large"
-           style="color:var(--text-light) !important; border-color:var(--accent-blue) !important; background-color: transparent !important;">
-            Download Resume
-        </a>
-    </div>
+        /* General body styling */
+        body {
+            background-color: var(--primary-dark) !important;
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.5s;
+        }
 
-</section>
+        /* Navigation Bar */
+        .w3-bar {
+            background-color: var(--secondary-dark) !important;
+            border-bottom: 1px solid var(--accent-mid); /* Subtle color separation */
+        }
+
+        /* W3.CSS Button/Text Override for Accent Colors */
+        .w3-text-teal, .w3-hover-text-teal:hover {
+            color: var(--accent-light) !important;
+        }
+
+        .w3-teal {
+            /* Subtle Gradient for Primary Button */
+            background-image: linear-gradient(to right, var(--accent-mid), var(--accent-light)) !important;
+            color: var(--secondary-dark) !important; 
+            border: none;
+        }
+        
+        /* Card Section Centering and Font Fix */
+        #work {
+            text-align: center; /* Center the whole section content */
+        }
+        
+        #work .section-title {
+            margin: 0 auto 30px auto; /* Re-center the title */
+        }
+        
+        #work h3, #work p {
+            font-family: 'Inter', sans-serif; /* Ensuring consistency */
+        }
+
+        /* Card styling (Glow Effect) */
+        .card {
+            background-color: var(--secondary-dark) !important;
+            border: 1px solid var(--accent-mid);
+            transition: all 0.4s ease-in-out;
+            box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px); 
+            /* Added Subtle Glow Effect */
+            box-shadow: 
+                0 0 5px var(--accent-vibrant), 
+                0 0 20px var(--accent-vibrant); 
+            border-color: var(--accent-vibrant);
+        }
+        
+        /* General headings and text */
+        h1, h2, h3 {
+            color: white; 
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+        }
+        
+        .hero-sub {
+            color: var(--accent-light);
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
+
+        .section-title {
+            border-bottom: 2px solid var(--accent-light);
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-bottom: 30px;
+        }
+
+    </style>
+    
+</head>
+<body>
+
+    <header class="w3-bar w3-padding w3-top w3-card">
+        <a href="#" class="w3-bar-item w3-button w3-text-teal w3-large"><b>NIA</b></a>
+        <div class="w3-right w3-hide-small">
+            <a href="#home" class="w3-bar-item w3-button w3-hover-text-teal">Home</a>
+            <a href="#author" class="w3-bar-item w3-button w3-hover-text-teal">Author</a>
+            <a href="#work" class="w3-bar-item w3-button w3-hover-text-teal">What I Do</a>
+            <a href="#cases" class="w3-bar-item w3-button w3-hover-text-teal">Case Studies</a>
+        </div>
+    </header>
+
+    <section id="home" class="w3-container hero-section w3-padding-64" style="padding-top:128px !important;">
+        <h1 class="hero-title">Hi, I’m Shania.</h1>
+        <p class="hero-sub">I simplify complexity so people can focus on impact.</p>
+        <p class="hero-text">
+            I thrive in fast paced work where clarity matters and results can’t wait. My background crosses business intelligence, data science, and business analysis. I enjoy work that’s both technical and people-centered because insights only matter when someone understands them. I’m driven by feedback, iteration, and real impact.
+        </p>
+        <div class="w3-margin-top">
+            <a href="#cases" class="w3-button w3-teal w3-round w3-large w3-margin-right">View Case Studies</a>
+            <a href="assets/resume.pdf" class="w3-button w3-white w3-border w3-round w3-large" style="color:var(--text-light) !important; border-color:var(--accent-light) !important; background-color: transparent !important;">Download Resume</a>
+        </div>
+    </section>
+
+    <section id="work" class="w3-container w3-padding-64">
+        <h2 class="section-title">What I Do</h2> 
+        <div class="w3-row-padding w3-margin-top">
+            <div class="w3-third w3-center w3-padding">
+                <div class="card w3-card w3-padding w3-round">
+                    <h3 class="w3-text-teal">Business Intelligence</h3>
+                    <p>Dashboards and KPI frameworks that support operational and strategic decisions.</p>
+                </div>
+            </div>
+
+            <div class="w3-third w3-center w3-padding">
+                <div class="card w3-card w3-padding w3-round">
+                    <h3 class="w3-text-teal">Data Analysis</h3>
+                    <p>Pattern discovery, problem framing, and quantitative insights for real-world use.</p>
+                </div>
+            </div>
+
+            <div class="w3-third w3-center w3-padding">
+                <div class="card w3-card w3-padding w3-round">
+                    <h3 class="w3-text-teal">Decision Tools</h3>
+                    <p>Interactive apps deployed through Streamlit that turn static reports into actionable tools.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="author" class="w3-container w3-padding-64">
+        <h2 class="section-title">Author’s Notes</h2>
+        <p class="author-text">
+            Built from obsession and sharpened by discipline.
+            This space mirrors how I think — technical, intentional, and always evolving.
+            I break things, rebuild them, and refine the logic until it works not just well, but <em>better</em>.
+        </p>
+    </section>
+    
+    <footer class="w3-container w3-padding-32 w3-center" style="background-color: var(--secondary-dark);">
+      <p class="w3-small">Designed and Built by Shania Keith Dela Vega. All rights reserved</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+
+</body>
+</html>

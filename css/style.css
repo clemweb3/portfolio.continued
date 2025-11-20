@@ -1,33 +1,44 @@
 :root {
-    /* Custom Tech Palette based on your colors */
-    --primary-dark: #06202B; /* Darkest Blue for Background (from 06202B) */
-    --secondary-dark: #001C30; /* Darker Blue for Elements/Navbar (from 001C30) */
-    --text-light: #DAFFFB; /* Brightest light color for main text (from DAFFFB) */
-    --accent-light: #64CCC5; /* Light Teal/Cyan for main accent (from 64CCC5) */
-    --accent-mid: #176B87; /* Mid Blue for gradient/shadow (from 176B87) */
-    --accent-vibrant: #7AE2CF; /* Very vibrant accent for glow (from 7AE2CF) */
+    /* Custom Tech Palette */
+    --primary-dark: #06202B;
+    --secondary-dark: #001C30;
+    --text-light: #DAFFFB;
+    --accent-light: #64CCC5;
+    --accent-mid: #176B87;
+    --accent-vibrant: #7AE2CF;
+
+    /* Hero text size variables */
+    --hero-text-size: 1.4rem; /* adjust this to make the opening paragraph bigger or smaller */
+    --hero-text-line-height: 1.8; /* adjust spacing inside hero paragraph */
 }
 
-/* General body styling - Ensures all text defaults to San-serif */
+/* General body styling */
 body {
     background-color: var(--primary-dark) !important;
     color: var(--text-light);
     font-family: 'Inter', sans-serif;
     transition: background-color 0.5s;
+    margin: 0;
 }
 
 /* Navigation Bar */
 .w3-bar {
     background-color: var(--secondary-dark) !important;
     border-bottom: 1px solid var(--accent-mid);
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-/* W3.CSS Button/Text Override for Accent Colors */
+/* Dynamic Header Styling */
+header.scrolled {
+    background-color: rgba(0, 28, 48, 0.95) !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+/* W3.CSS Button/Text Override */
 .w3-text-teal, .w3-hover-text-teal:hover {
     color: var(--accent-light) !important;
 }
 
-/* Primary Button (View Case Studies) with Subtle Gradient */
 .w3-teal {
     background-image: linear-gradient(to right, var(--accent-mid), var(--accent-light)) !important;
     color: var(--secondary-dark) !important;
@@ -40,24 +51,22 @@ body {
     transform: scale(1.02);
 }
 
-/* Secondary Button (Download Resume) */
 .w3-button.w3-white {
     color: var(--text-light) !important;
     border-color: var(--accent-light) !important;
     background-color: transparent !important;
 }
 
-/* Centering the "What I Do" section content */
+/* Centering "What I Do" section content */
 #work {
     text-align: center;
 }
 
 #work .section-title {
-    /* Re-center the section title */
     margin: 0 auto 30px auto;
 }
 
-/* Card styling with initial dark background */
+/* Card styling */
 .card {
     background-color: var(--secondary-dark) !important;
     border: 1px solid var(--accent-mid);
@@ -65,20 +74,18 @@ body {
     box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2);
 }
 
-/* Card Glow Effect on Hover */
 .card:hover {
-    transform: translateY(-5px); /* Subtle lift */
-    /* Key glowing shadows */
+    transform: translateY(-5px);
     box-shadow: 
-        0 0 5px var(--accent-vibrant), /* Inner glow */
-        0 0 20px var(--accent-vibrant); /* Wider outer glow */
+        0 0 5px var(--accent-vibrant),
+        0 0 20px var(--accent-vibrant);
     border-color: var(--accent-vibrant);
 }
 
-/* General Headings */
+/* Headings */
 h1, h2, h3 {
     color: white; 
-    font-family: 'Inter', sans-serif; /* Ensuring all headings are San-serif */
+    font-family: 'Inter', sans-serif;
 }
 
 .hero-title {
@@ -92,16 +99,69 @@ h1, h2, h3 {
     font-weight: 400;
 }
 
-.hero-text, .author-text {
+/* Hero paragraph text (configurable size) */
+.hero-text {
     max-width: 650px;
-    line-height: 1.7;
-    margin-left: auto; /* Center the text block */
-    margin-right: auto; /* Center the text block */
+    line-height: var(--hero-text-line-height);
+    font-size: var(--hero-text-size);
+    margin-left: auto;
+    margin-right: auto;
 }
 
+/* Author text */
+.author-text {
+    max-width: 650px;
+    line-height: 1.7;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Section Titles */
 .section-title {
     border-bottom: 2px solid var(--accent-light);
     display: inline-block;
     padding-bottom: 5px;
     margin-bottom: 30px;
+    font-family: 'Inter', sans-serif !important;
+}
+
+/* Active Navigation Highlight */
+.active-nav {
+    border-bottom: 2px solid var(--accent-vibrant);
+    padding-bottom: 2px;
+}
+
+/* ------------------------------- */
+/*   Section Spacing & Scroll Fix  */
+/* ------------------------------- */
+section {
+    padding-top: 120px;       /* ensures content below fixed navbar */
+    padding-bottom: 64px;     /* spacing between sections */
+    scroll-margin-top: 100px; /* for smooth anchor scrolling */
+}
+
+/* Center Author Section */
+#author {
+    text-align: center;
+}
+
+/* ------------------------------- */
+/*      Sticky Footer Fix          */
+/* ------------------------------- */
+footer {
+    background-color: var(--secondary-dark);
+    color: var(--text-light);
+    width: 100%;
+    padding: 32px 0;
+    text-align: center;
+    position: relative;       /* ensures it’s at the bottom naturally */
+    bottom: 0;
+}
+
+body, html {
+    height: 100%;
+}
+
+body > *:last-child {
+    margin-bottom: 0; /* removes extra space below footer */
 }

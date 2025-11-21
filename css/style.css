@@ -1,22 +1,30 @@
 :root {
-    /* Custom Tech Palette */
-    --primary-dark: #06202B;
-    --secondary-dark: #001C30;
-    --text-light: #DAFFFB;
-    --accent-light: #64CCC5;
-    --accent-mid: #176B87;
-    --accent-vibrant: #7AE2CF;
+    /* Custom Tech Palette (Retained) */
+    --primary-dark: #06202B;    /* Used for dark text on Hero/Buttons/Navbar BG */
+    --secondary-dark: #001C30;  /* Used for dark text on Hero/Buttons/Navbar BG */
+    --text-light: #DAFFFB;      /* Used for light text on dark sections */
+    --accent-light: #64CCC5;    /* Light Teal/Cyan for main accent */
+    --accent-mid: #176B87;      /* Mid Blue for gradient/shadow */
+    --accent-vibrant: #7AE2CF;  /* Very vibrant accent for glow */
 
-    /* Hero text size variables */
-    --hero-text-size: 1.4rem; /* adjust this to make the opening paragraph bigger or smaller */
-    --hero-text-line-height: 1.8; /* adjust spacing inside hero paragraph */
+    /* NEW HERO COLORS (derived from the light background in your image) */
+    --hero-light-start: #E6FFF6; /* Very pale mint for the top/left of gradient */
+    --hero-light-end: #C8F0E5;   /* Slightly darker pale teal for the bottom/right of gradient */
+
+    /* Hero text size variables (Retained) */
+    --hero-text-size: 1.6rem; 
+    --hero-text-line-height: 1.8; 
 }
 
 /* General body styling */
 body {
+    /* Set body to the lightest color, but sections will override this */
     background-color: var(--primary-dark) !important;
-    color: var(--text-light);
-    font-family: 'Inter', sans-serif;
+    color: var(--text-light); /* Default text color for dark sections */
+    
+    /* UPDATED FONT FAMILY */
+    font-family: 'IBM Plex Sans', sans-serif;
+    
     transition: background-color 0.5s;
     margin: 0;
 }
@@ -39,23 +47,68 @@ header.scrolled {
     color: var(--accent-light) !important;
 }
 
+/* Primary Button (View Case Studies) */
 .w3-teal {
-    background-image: linear-gradient(to right, var(--accent-mid), var(--accent-light)) !important;
-    color: var(--secondary-dark) !important;
+    /* Button background is now the dark color to stand out on the light hero background */
+    background-color: var(--secondary-dark) !important;
+    color: var(--text-light) !important; /* Text is light */
     border: none;
     transition: transform 0.3s ease;
+    /* Optional: Small box shadow for depth */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .w3-teal:hover {
-    background-image: linear-gradient(to right, var(--accent-light), var(--accent-mid)) !important;
+    background-color: var(--primary-dark) !important;
     transform: scale(1.02);
 }
 
+/* Secondary Button (Download Resume) */
 .w3-button.w3-white {
+    /* Button background is dark */
     color: var(--text-light) !important;
-    border-color: var(--accent-light) !important;
-    background-color: transparent !important;
+    border-color: var(--secondary-dark) !important;
+    background-color: var(--secondary-dark) !important;
 }
+
+/* --- HERO SECTION STYLING (The Animation/Redesign Target) --- */
+#home {
+    min-height: 100vh;
+    padding-top: 15vh !important; 
+    padding-bottom: 10vh !important; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    /* NEW: GRADIENT BACKGROUND (to match the image) */
+    background: linear-gradient(135deg, var(--hero-light-start) 0%, var(--hero-light-end) 100%) !important;
+}
+
+/* ADJUST TEXT COLORS FOR LIGHT BACKGROUND */
+#home .hero-title, 
+#home .hero-sub, 
+#home .hero-text,
+#home .hero-content {
+    color: var(--primary-dark) !important; /* Text is now dark on light background */
+    text-shadow: none;
+}
+/* Re-apply accent color for the subheading */
+#home .hero-sub {
+    color: var(--accent-mid) !important; /* Use a mid-dark accent color */
+    font-size: 1.8rem; /* Slight increase for contrast */
+}
+
+/* Headings (For dark sections) */
+h1, h2, h3 {
+    color: white; 
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+.hero-title {
+    font-size: 4rem;
+    font-weight: 700;
+}
+/* ---------------------------------------------------- */
+
 
 /* Centering "What I Do" section content */
 #work {
@@ -66,7 +119,7 @@ header.scrolled {
     margin: 0 auto 30px auto;
 }
 
-/* Card styling */
+/* Card styling (retains dark background for subsequent sections) */
 .card {
     background-color: var(--secondary-dark) !important;
     border: 1px solid var(--accent-mid);
@@ -80,23 +133,6 @@ header.scrolled {
         0 0 5px var(--accent-vibrant),
         0 0 20px var(--accent-vibrant);
     border-color: var(--accent-vibrant);
-}
-
-/* Headings */
-h1, h2, h3 {
-    color: white; 
-    font-family: 'Inter', sans-serif;
-}
-
-.hero-title {
-    font-size: 3.5rem;
-    font-weight: 700;
-}
-
-.hero-sub {
-    color: var(--accent-light);
-    font-size: 1.5rem;
-    font-weight: 400;
 }
 
 /* Hero paragraph text (configurable size) */
@@ -116,13 +152,16 @@ h1, h2, h3 {
     margin-right: auto;
 }
 
-/* Section Titles */
+/* Section Titles - (For dark sections) */
 .section-title {
+    font-size: 3rem; 
+    font-weight: 700; 
+    
     border-bottom: 2px solid var(--accent-light);
     display: inline-block;
     padding-bottom: 5px;
     margin-bottom: 30px;
-    font-family: 'Inter', sans-serif !important;
+    font-family: 'IBM Plex Sans', sans-serif !important;
 }
 
 /* Active Navigation Highlight */
@@ -132,29 +171,28 @@ h1, h2, h3 {
 }
 
 /* ------------------------------- */
-/*   Section Spacing & Scroll Fix  */
+/* Section Spacing & Scroll Fix */
 /* ------------------------------- */
 section {
-    padding-top: 120px;       /* ensures content below fixed navbar */
-    padding-bottom: 64px;     /* spacing between sections */
-    scroll-margin-top: 100px; /* for smooth anchor scrolling */
+    padding-top: 120px;       
+    padding-bottom: 64px;     
+    scroll-margin-top: 100px; 
 }
+
 
 /* Center Author Section */
 #author {
     text-align: center;
 }
 
-/* ------------------------------- */
-/*      Sticky Footer Fix          */
-/* ------------------------------- */
+/* Footer Styling */
 footer {
-    background-color: var(--secondary-dark);
+    background-color: var(--secondary-dark) !important;
     color: var(--text-light);
     width: 100%;
     padding: 32px 0;
     text-align: center;
-    position: relative;       /* ensures it’s at the bottom naturally */
+    position: relative; 
     bottom: 0;
 }
 
@@ -163,5 +201,5 @@ body, html {
 }
 
 body > *:last-child {
-    margin-bottom: 0; /* removes extra space below footer */
+    margin-bottom: 0; 
 }

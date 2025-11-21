@@ -12,8 +12,8 @@
     --hero-light-end: #C8F0E5;   /* Slightly darker pale teal for the bottom/right of gradient */
 
     /* Hero text size variables (Retained) */
-    --hero-text-size: 1.6rem; 
-    --hero-text-line-height: 1.8; 
+    --hero-text-size: 1.1rem; 
+    --hero-text-line-height: 1.5; 
 }
 
 /* General body styling */

@@ -50,7 +50,7 @@ body {
 
 /* Nav items sizing and spacing */
 .w3-bar .w3-bar-item {
-    font-size: 1rem;        /* increase or decrease for text sizing */
+    font-size: 2rem;        /* increase or decrease for text sizing */
     padding: 8px 14px;
     line-height: 1;
     color: var(--text-light) !important;

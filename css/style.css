@@ -1,253 +1,173 @@
-:root {
-    /* Custom Tech Palette (Retained) */
-    --primary-dark: #06202B;    /* Used for dark text on Hero/Buttons/Navbar BG */
-    --secondary-dark: #001C30;  /* Used for dark text on Hero/Buttons/Navbar BG */
-    --text-light: #DAFFFB;      /* Used for light text on dark sections */
-    --accent-light: #64CCC5;    /* Light Teal/Cyan for main accent */
-    --accent-mid: #176B87;      /* Mid Blue for gradient/shadow */
-    --accent-vibrant: #7AE2CF;  /* Very vibrant accent for glow */
-
-    /* NEW HERO COLORS (derived from the light background in your image) */
-    --hero-light-start: #E6FFF6; /* Very pale mint for the top/left of gradient */
-    --hero-light-end: #C8F0E5;   /* Slightly darker pale teal for the bottom/right of gradient */
-
-    /* Hero text size variables (fixed spacing) */
-    --hero-text-size: 1.1rem;
-    --hero-text-line-height: 1.5;
-
-    /* NAV control */
-    --nav-height: 72px;         /* adjust this to change navbar thickness globally */
-    --nav-padding-vertical: 12px;
-}
-
-/* General body styling */
-body {
-    /* Set body to the lightest color, but sections will override this */
-    background-color: var(--primary-dark) !important;
-    color: var(--text-light); /* Default text color for dark sections */
-
-    /* UPDATED FONT FAMILY */
-    font-family: 'IBM Plex Sans', sans-serif;
-
-    transition: background-color 0.5s;
+/* ===== GLOBAL RESET ===== */
+* {
     margin: 0;
-}
-
-/* Navigation Bar - primary control */
-.w3-bar {
-    position: relative; /* required for ::after glow */
-    background-color: rgba(0,28,48,1) !important; /* full opacity by default */
-    border-bottom: 1px solid var(--accent-mid);
-    transition: background-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
-    padding: var(--nav-padding-vertical) 18px;
-    min-height: var(--nav-height);
+    padding: 0;
     box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    z-index: 40;
-    box-shadow: 0 8px 24px rgba(2,16,20,0.20);
 }
 
-/* Nav items sizing and spacing */
-.w3-bar .w3-bar-item {
-    font-size: 2rem;        /* increase or decrease for text sizing */
-    padding: 8px 14px;
-    line-height: 1;
-    color: var(--text-light) !important;
+body {
+    font-family: "Inter", sans-serif;
+    background-color: #0A0F1F;
+    color: #E5E9F0;
+    line-height: 1.6;
 }
 
-/* Right-hand group alignment */
-.w3-bar .w3-right {
-    display: flex;
-    gap: 6px;
-    align-items: center;
-}
-
-/* subtle colored glow under the bar (visual depth) */
-.w3-bar::after{
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -8px;
-    height: 12px;
-    pointer-events: none;
-    filter: blur(14px);
-    background: linear-gradient(90deg, rgba(122,226,207,0.06), rgba(100,204,197,0.02));
-}
-
-/* Dynamic Header Styling (when scrolled) */
-header.scrolled {
-    background-color: rgba(0, 28, 48, 1) !important; /* full opacity */
-    box-shadow: 0 10px 36px rgba(0,0,0,0.45);
-    border-bottom-color: rgba(26,150,135,0.12);
-    transform: translateY(0);
-}
-
-/* W3.CSS Button/Text Override */
-.w3-text-teal, .w3-hover-text-teal:hover {
-    color: var(--accent-light) !important;
-}
-
-/* Primary Button (View Case Studies) */
-.w3-teal {
-    /* Button background is now the dark color to stand out on the light hero background */
-    background-color: var(--secondary-dark) !important;
-    color: var(--text-light) !important; /* Text is light */
-    border: none;
-    transition: transform 0.3s ease;
-    /* Optional: Small box shadow for depth */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-}
-
-.w3-teal:hover {
-    background-color: var(--primary-dark) !important;
-    transform: scale(1.02);
-}
-
-/* Secondary Button (Download Resume) */
-.w3-button.w3-white {
-    /* Button background is dark */
-    color: var(--text-light) !important;
-    border-color: var(--secondary-dark) !important;
-    background-color: var(--secondary-dark) !important;
-}
-
-/* --- HERO SECTION STYLING (The Animation/Redesign Target) --- */
-#home {
-    min-height: 100vh;
-    padding-top: 15vh !important;
-    padding-bottom: 10vh !important;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    /* NEW: GRADIENT BACKGROUND (to match the image) */
-    background: linear-gradient(135deg, var(--hero-light-start) 0%, var(--hero-light-end) 100%) !important;
-}
-
-/* ADJUST TEXT COLORS FOR LIGHT BACKGROUND */
-#home .hero-title,
-#home .hero-sub,
-#home .hero-text,
-#home .hero-content {
-    color: var(--primary-dark) !important; /* Text is now dark on light background */
-    text-shadow: none;
-}
-
-/* Re-apply accent color for the subheading */
-#home .hero-sub {
-    color: var(--accent-mid) !important; /* Use a mid-dark accent color */
-    font-size: 1.8rem; /* Slight increase for contrast */
-}
-
-/* Headings (For dark sections) */
-h1, h2, h3 {
-    color: white;
-    font-family: 'IBM Plex Sans', sans-serif;
-}
-.hero-title {
-    font-size: 4rem;
-    font-weight: 700;
-}
-
-/* Centering "What I Do" section content */
-#work {
-    text-align: center;
-}
-
-#work .section-title {
-    margin: 0 auto 30px auto;
-}
-
-/* Card styling (retains dark background for subsequent sections) */
-.card {
-    background-color: var(--secondary-dark) !important;
-    border: 1px solid var(--accent-mid);
-    transition: all 0.4s ease-in-out;
-    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2);
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow:
-        0 0 5px var(--accent-vibrant),
-        0 0 20px var(--accent-vibrant);
-    border-color: var(--accent-vibrant);
-}
-
-/* Hero paragraph text (configurable size) */
-.hero-text {
-    max-width: 650px;
-    line-height: var(--hero-text-line-height);
-    font-size: var(--hero-text-size);
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Author text */
-.author-text {
-    max-width: 650px;
-    line-height: 1.7;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Section Titles - (For dark sections) */
-.section-title {
-    font-size: 3rem;
-    font-weight: 700;
-
-    border-bottom: 2px solid var(--accent-light);
-    display: inline-block;
-    padding-bottom: 5px;
-    margin-bottom: 30px;
-    font-family: 'IBM Plex Sans', sans-serif !important;
-}
-
-/* Active Navigation Highlight */
-.active-nav {
-    border-bottom: 2px solid var(--accent-vibrant);
-    padding-bottom: 2px;
-}
-
-/* ------------------------------- */
-/* Section Spacing & Scroll Fix */
-/* ------------------------------- */
-/* Use nav height so sections don't get pushed too far by large nav */
 section {
-    padding-top: calc(var(--nav-height) + 24px);
-    padding-bottom: 64px;
-    scroll-margin-top: calc(var(--nav-height) + 8px);
+    padding: 80px 10%;
 }
 
-/* Center Author Section */
-#author {
-    text-align: center;
+.section-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #7AE2CF;
 }
 
-/* Footer Styling */
-footer {
-    background-color: var(--secondary-dark) !important;
-    color: var(--text-light);
+
+/* ===== NAVBAR ===== */
+.navbar {
     width: 100%;
-    padding: 32px 0;
+    padding: 20px 10%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: rgba(10, 15, 31, 0.65);
+    backdrop-filter: blur(8px);
+}
+
+.nav-logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: #64CCC5;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #E5E9F0;
+    font-weight: 500;
+    transition: 0.25s;
+}
+
+.nav-links a:hover {
+    color: #7AE2CF;
+}
+
+/* Make hero visible below fixed navbar */
+#home {
+    padding-top: 140px;
+}
+
+
+/* ===== HERO ===== */
+.hero-title {
+    font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #7AE2CF;
+}
+
+.hero-subtitle {
+    font-size: 22px;
+    color: #64CCC5;
+    margin-bottom: 20px;
+}
+
+.hero-description {
+    max-width: 750px;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    margin-right: 12px;
+
+    border: 1px solid #7AE2CF;
+    border-radius: 6px;
+
+    color: #7AE2CF;
+    text-decoration: none;
+
+    transition: 0.25s ease;
+}
+
+.hero-btn:hover {
+    background-color: #7AE2CF;
+    color: #0A0F1F;
+}
+
+
+/* ===== WHAT I DO + PROJECT CARDS ===== */
+.service-cards,
+.project-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.service-card,
+.project-card {
+    background-color: #001C30;
+    border: 1px solid #176B87;
+    padding: 25px;
+    border-radius: 12px;
+
+    text-decoration: none;
+    color: #DAFFFB;
+
+    transition: 0.25s;
+}
+
+.service-card h3,
+.project-card h3 {
+    margin-bottom: 10px;
+    color: #7AE2CF;
+}
+
+.service-card:hover,
+.project-card:hover {
+    transform: translateY(-6px);
+    border-color: #64CCC5;
+}
+
+
+/* ===== AUTHOR'S NOTES ===== */
+.notes-content {
+    max-width: 800px;
+    font-size: 18px;
+}
+
+.notes-content p {
+    margin-bottom: 18px;
+}
+
+
+/* ===== CONTACT ===== */
+.contact-content a {
+    color: #7AE2CF;
+    text-decoration: none;
+}
+
+.contact-content a:hover {
+    text-decoration: underline;
+}
+
+
+/* ===== FOOTER ===== */
+.footer {
     text-align: center;
-    position: relative;
-    bottom: 0;
-}
-
-body, html {
-    height: 100%;
-}
-
-body > *:last-child {
-    margin-bottom: 0;
-}
-
-/* Responsive tweaks for smaller screens */
-@media (max-width: 720px) {
-    :root { --nav-height: 56px; --nav-padding-vertical: 8px; }
-    .w3-bar .w3-bar-item { font-size: 0.95rem; padding: 8px 10px; }
-    .hero-title { font-size: 2.4rem; }
+    padding: 40px 0;
+    font-size: 14px;
+    opacity: 0.7;
 }

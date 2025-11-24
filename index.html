@@ -1,313 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Portfolio </title>
-
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            /* Custom Tech Palette (Retained) */
-            --primary-dark: #06202B; /* Darkest Blue for Background */
-            --secondary-dark: #001C30; /* Darker Blue for Elements/Navbar */
-            --text-light: #DAFFFB; /* Brightest light color for text (for dark sections) */
-            --accent-light: #64CCC5; /* Light Teal/Cyan for main accent */
-            --accent-mid: #176B87; /* Mid Blue for gradient/shadow */
-            --accent-vibrant: #7AE2CF; /* Very vibrant accent for glow */
-
-            /* NEW HERO COLORS (derived from the light background in your image) */
-            --hero-light-start: #E6FFF6; /* Very pale mint for the top/left of gradient */
-            --hero-light-end: #C8F0E5;   /* Slightly darker pale teal for the bottom/right of gradient */
-
-            /* Hero text size variables */
-            --hero-text-size: 1.6rem; 
-            --hero-text-line-height: 1.8; 
-        }
-
-        /* General body styling */
-        body {
-            background-color: var(--primary-dark) !important;
-            color: var(--text-light);
-            /* UPDATED FONT FAMILY */
-            font-family: 'IBM Plex Sans', sans-serif;
-            transition: background-color 0.5s;
-            margin: 0;
-        }
-
-        /* Navigation Bar */
-        .w3-bar {
-            background-color: var(--secondary-dark) !important;
-            border-bottom: 2px solid var(--accent-mid); /* Subtle color separation */
-            transition: background-color 0.3s, box-shadow 0.3s;
-            padding-bottom: 30px;
-            padding-top: 30px;
-        }
-        
-        /* Dynamic Header Styling */
-        header.scrolled {
-            background-color: rgba(0, 28, 48, 0.95) !important;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-        }
-
-        /* W3.CSS Button/Text Override for Accent Colors */
-        .w3-text-teal, .w3-hover-text-teal:hover {
-            color: var(--accent-light) !important;
-        }
-
-        /* Primary Button (View Case Studies) */
-        .w3-teal {
-            /* Button background is now the dark color to stand out on the light hero background */
-            background-color: var(--secondary-dark) !important;
-            color: var(--text-light) !important; /* Text is light */
-            border: none;
-            transition: transform 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        }
-        
-        .w3-teal:hover {
-            background-color: var(--primary-dark) !important;
-            transform: scale(1.02);
-        }
-
-        /* Secondary Button (Download Resume) */
-        .w3-button.w3-white {
-            /* Button background is dark */
-            color: var(--text-light) !important;
-            border-color: var(--secondary-dark) !important;
-            background-color: var(--secondary-dark) !important;
-        }
-
-        /* Centering "What I Do" section content */
-        #work {
-            text-align: center; /* Center the whole section content */
-        }
-        
-        #work .section-title {
-            margin: 0 auto 30px auto; /* Re-center the title */
-        }
-        
-        /* Card styling (Glow Effect) */
-        .card {
-            background-color: var(--secondary-dark) !important;
-            border: 1px solid var(--accent-mid);
-            transition: all 0.4s ease-in-out;
-            box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2);
-        }
-        
-        .card:hover {
-            transform: translateY(-5px); 
-            /* Added Subtle Glow Effect */
-            box-shadow: 
-                0 0 5px var(--accent-vibrant), 
-                0 0 20px var(--accent-vibrant); 
-            border-color: var(--accent-vibrant);
-        }
-        
-        /* General headings and text */
-        h1, h2, h3 {
-            color: white; 
-            font-family: 'IBM Plex Sans', sans-serif; /* UPDATED FONT */
-        }
-
-        .hero-title {
-            font-size: 4rem; /* Adjusted for better impact on light background */
-            font-weight: 700;
-        }
-        
-        .hero-sub {
-            color: var(--accent-mid) !important; /* Used a mid-dark accent color for contrast */
-            font-size: 1.8rem; /* Adjusted for better impact */
-            font-weight: 400;
-        }
-
-        /* Hero paragraph text (configurable size) */
-        .hero-text {
-            max-width: 650px;
-            line-height: var(--hero-text-line-height);
-            font-size: var(--hero-text-size);
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Text color overrides for the light Hero Section */
-        #home .hero-title, 
-        #home .hero-text,
-        #home .hero-content {
-            color: var(--primary-dark) !important; /* Text is now dark on light background */
-            text-shadow: none;
-        }
-
-        /* Author text */
-        .author-text {
-            max-width: 650px;
-            line-height: 1.7;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Section Titles - (For dark sections) */
-        .section-title {
-            font-size: 3rem; 
-            font-weight: 700; 
-            
-            border-bottom: 2px solid var(--accent-light);
-            display: inline-block;
-            padding-bottom: 5px;
-            margin-bottom: 30px;
-            font-family: 'IBM Plex Sans', sans-serif !important; /* UPDATED FONT */
-        }
-
-        /* Active Navigation Highlight */
-        .active-nav {
-            border-bottom: 2px solid var(--accent-vibrant);
-            padding-bottom: 2px;
-        }
-        
-        /* Placeholder for new CSS additions */
-        .placeholder-text {
-            max-width: 800px;
-            margin: 30px auto;
-            text-align: center;
-            font-size: 1.2rem;
-            color: var(--accent-light);
-        }
-        
-        /* ------------------------------- */
-        /* Section Spacing & Scroll Fix */
-        /* ------------------------------- */
-        section {
-            padding-top: 120px;       /* ensures content below fixed navbar */
-            padding-bottom: 64px;     /* spacing between sections */
-            scroll-margin-top: 100px; /* for smooth anchor scrolling */
-        }
-
-        /* ENSURE HERO SECTION FILLS THE ENTIRE SCREEN HEIGHT (Retained) */
-        #home {
-            min-height: 100vh; 
-            /* NEW: GRADIENT BACKGROUND (to match the image) */
-            background: linear-gradient(135deg, var(--hero-light-start) 0%, var(--hero-light-end) 100%) !important;
-            
-            /* Padding adjustments and centering */
-            padding-top: 15vh !important; 
-            padding-bottom: 10vh !important; 
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        /* Center Author Section */
-        #author {
-            text-align: center;
-        }
-
-        /* Sticky Footer Fix */
-        footer {
-            background-color: var(--secondary-dark) !important;
-            color: var(--text-light);
-            width: 100%;
-            padding: 32px 0;
-            text-align: center;
-            position: relative; 
-            bottom: 0;
-        }
-
-        body, html {
-            height: 100%;
-        }
-
-        body > *:last-child {
-            margin-bottom: 0; 
-        }
-    </style>
-    
+    <title>Professional Portfolio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <header class="w3-bar w3-padding w3-top w3-card">
-        <a href="#home" class="w3-bar-item w3-button w3-text-teal w3-large"><b>NIA &lt;/&gt; </b></a>
-        <div class="w3-right w3-hide-small">
-            <a href="#home" class="w3-bar-item w3-button w3-hover-text-teal">Home</a>
-            <a href="#author" class="w3-bar-item w3-button w3-hover-text-teal">Author</a>
-            <a href="#work" class="w3-bar-item w3-button w3-hover-text-teal">What I Do</a>
-            <a href="#cases" class="w3-bar-item w3-button w3-hover-text-teal">Case Studies</a>
-        </div>
-    </header>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-logo">NIA &lt;/&gt;</div>
 
-    <section id="home" class="w3-container hero-section w3-padding-64" style="padding-top:128px !important;">
-        <h1 class="hero-title">Hi, I’m Shania.</h1>
-        <p class="hero-sub">I simplify complexity so people can focus on impact.</p>
-        <p class="hero-text">
-            I thrive in a fast paced work environment where clarity matters and results can’t wait. My background crosses business intelligence, data science, and business analysis. I enjoy work that’s both technical and people-centered because insights only matter when someone understands them. I’m driven by feedback, iteration, and real impact.
-        </p>
-        <div class="w3-margin-top">
-            <a href="#cases" class="w3-button w3-teal w3-round w3-large w3-margin-right">View Case Studies</a>
-            <a href="assets/resume.pdf" class="w3-button w3-white w3-border w3-round w3-large" style="color:var(--text-light) !important; border-color:var(--accent-light) !important; background-color: var(--secondary-dark) !important;">Download Resume</a>
-        </div>
-    </section>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#what-i-do">What I Do</a></li>
+            <li><a href="#featured-projects">Case Studies & Projects</a></li>
+            <li><a href="#authors-notes">Author's Notes</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-    <section id="work" class="w3-container w3-padding-64">
-        <h2 class="section-title">What I Do</h2> 
-        <div class="w3-row-padding w3-margin-top">
-            <div class="w3-third w3-center w3-padding">
-                <div class="card w3-card w3-padding w3-round">
-                    <h3 class="w3-text-teal">Business Intelligence</h3>
-                    <p>Dashboards and KPI frameworks that support operational and strategic decisions.</p>
-                </div>
-            </div>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="hero-title">Hi, I'm Shania.</h1>
+            <p class="hero-subtitle">I simplify complexity so people can focus on impact.</p>
 
-            <div class="w3-third w3-center w3-padding">
-                <div class="card w3-card w3-padding w3-round">
-                    <h3 class="w3-text-teal">Data Analysis</h3>
-                    <p>Pattern discovery, problem framing, and quantitative insights for real-world use.</p>
-                </div>
-            </div>
+            <p class="hero-description">
+                I thrive in fast paced work where clarity matters and results can’t wait.
+                My background crosses business intelligence, data science, and business analysis.
+                I enjoy work that's both technical and people-centered because insights only matter when someone understands them.
+                I’m driven by feedback, iteration, and real impact.
+            </p>
 
-            <div class="w3-third w3-center w3-padding">
-                <div class="card w3-card w3-padding w3-round">
-                    <h3 class="w3-text-teal">Decision Tools</h3>
-                    <p>Interactive apps deployed through Streamlit that turn static reports into actionable tools.</p>
-                </div>
-            </div>
-
+            <a href="#view-case-studies" class="hero-btn">View Case Studies</a>
+            <a href="#download-resume" class="hero-btn">Download Resume</a>
         </div>
     </section>
 
-    <section id="author" class="w3-container w3-padding-64">
-        <h2 class="section-title">Author’s Notes</h2>
-        <p class="author-text">
-            I believe tools say something about the person who builds them. 
+    <!-- What I Do -->
+    <section class="what-i-do" id="what-i-do">
+        <h2 class="section-title">What I Do</h2>
 
-            This site is a reflection of how I think — technical, intentional, and always evolving.
-            Every project here was a small obsession. I enjoy the <em> process of breaking a problem apart, shaping it, and seeing it become something that gives value to someone else.</em>
+        <div class="service-cards">
+            <a href="#business-intelligence" class="service-card">
+                <h3>Business Intelligence</h3>
+                <p>Dashboards and KPI frameworks that support operational and strategic decisions.</p>
+            </a>
 
-            This space grows with me. As I learn, I update. As I break things, I fix them. As I understand more, I write more. Think of this as a living notebook.
+            <a href="#predictive-modeling" class="service-card">
+                <h3>Predictive Modeling</h3>
+                <p>Pattern discovery, machine learning model development, and quantitative insights for real-world use.</p>
+            </a>
 
-            I engineer with focus, iteration, and a bit of madness — a space shaped by obsession, thoughts refined by discipline. This is the closest you’ll get to how my mind works.
-        </p>
+            <a href="#decision-tools" class="service-card">
+                <h3>Decision Tools</h3>
+                <p>Interactive apps deployed through Streamlit that turn static reports into actionable tools.</p>
+            </a>
+        </div>
     </section>
-    
-    <section id="cases" class="w3-container w3-padding-64 w3-center" style="min-height: 50vh;">
-        <h2 class="section-title">Case Studies & Projects</h2>
-        <p class="placeholder-text w3-text-light">
-            Thank you for your interest. The full repository of case studies is currently under rigorous quality assurance testing (QA) and will be deployed soon.
-        </p>
-        <p class="placeholder-text w3-text-light">
-             Please check back shortly for the detailed project deep-dives.
-        </p>
-        <p class="placeholder-text w3-large w3-text-teal">
-            STATUS: Deploying new features...
-        </p>
+
+    <!-- Featured Projects -->
+    <section class="featured-projects" id="featured-projects">
+        <h2 class="section-title">Featured Case Studies & Projects</h2>
+
+        <div class="project-cards">
+            <a href="project-business-intelligence.html" class="project-card">
+                <h3>Business Intelligence Dashboard</h3>
+                <p>Operational and strategic dashboards to help businesses make data-driven decisions.</p>
+            </a>
+
+            <a href="project-predictive-modeling.html" class="project-card">
+                <h3>Predictive Modeling Project</h3>
+                <p>Machine learning models uncovering patterns and providing quantitative insights.</p>
+            </a>
+
+            <a href="project-decision-tools.html" class="project-card">
+                <h3>Interactive Decision Tools</h3>
+                <p>Streamlit apps converting static reports into actionable tools for decision-making.</p>
+            </a>
+        </div>
     </section>
-    
-    <footer class="w3-container w3-padding-32 w3-center" style="background-color: var(--secondary-dark);">
-      <p class="w3-small"> © 2025 Shania Keith Dela Vega. All rights reserved</p>
+
+    <!-- Author's Notes -->
+    <section class="authors-notes" id="authors-notes">
+        <h2 class="section-title">Author's Notes</h2>
+
+        <div class="notes-content">
+            <p>I believe tools say something about the person who builds them.</p>
+
+            <p>This site is a reflection of how I think. I like things clean but never passive, technical but still human,
+            structured but always adaptable and scalable. Every project here was a small obsession. I enjoy the process
+            of breaking a problem apart, shaping it, and seeing it become something that gives value to someone else.
+            This space grows with me. As I learn, I update. As I break things, I fix them. As I understand more, I write more.
+            Think of this as a living notebook.</p>
+
+            <p>I engineer with focus, iteration, and a bit of madness — a space shaped by obsession, thoughts refined by discipline.
+            This is the closest you’ll get to how my mind works.</p>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">Contact</h2>
+
+        <div class="contact-content">
+            <p>Let’s work together.</p>
+
+            <p>Email: <a href="mailto:shaniakeith23@gmail.com">shaniakeith23@gmail.com</a></p>
+
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/shania-keith-dela-vega" target="_blank">Shania Keith Dela Vega</a></p>
+
+            <p>GitHub: <a href="https://github.com/clemweb3" target="_blank">clemweb3</a></p>
+
+            <p>Obsessed with process. Driven by results.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 Shania Keith Dela Vega. All rights reserved.</p>
     </footer>
-
-    <script src="js/main.js"></script>
-
 </body>
+
 </html>

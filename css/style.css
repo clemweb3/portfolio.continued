@@ -109,11 +109,18 @@ section {
 
 
 /* ===== WHAT I DO + PROJECT CARDS ===== */
+#what-i-do .section-title {
+    text-align: center;
+}
+#featured-projects .section-title {
+    text-align: center;
+}
 .service-cards,
 .project-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 25px;
+    text-align: center;
 }
 
 .service-card,
@@ -154,15 +161,49 @@ section {
 
 
 /* ===== CONTACT ===== */
-.contact-content a {
-    color: #7AE2CF;
-    text-decoration: none;
+.contact-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 18px;
 }
 
-.contact-content a:hover {
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 18px;
+    transition: 0.2s;
+}
+
+.contact-item a {
+    color: #7AE2CF;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.contact-item:hover a {
     text-decoration: underline;
 }
 
+.contact-item i {
+    color: #7AE2CF;
+    font-size: 22px;
+}
+
+/* Centered footer line */
+.center-this {
+    text-align: center;
+    margin-top: 80px;
+    font-size: 20px;
+    font-style: italic;
+    color: #DAFFFB;
+}
+.contact-item:hover {
+    background-color: rgba(122, 226, 207, 0.1);
+    border-radius: 8px;
+    padding: 6px 12px;
+}
 
 /* ===== FOOTER ===== */
 .footer {

@@ -3,6 +3,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
+}
+html {
+    scroll-padding-top: 120px;   /* space for your fixed navbar */
+    scroll-behavior: smooth;     /* clean scrolling */
 }
 
 body {
@@ -14,7 +19,12 @@ body {
 
 section {
     padding: 80px 10%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
+
 
 .section-title {
     font-size: 32px;
@@ -37,6 +47,7 @@ section {
 
     background-color: rgba(10, 15, 31, 0.65);
     backdrop-filter: blur(8px);
+    z-index: 999;
 }
 
 .nav-logo {
@@ -129,11 +140,13 @@ section {
     border: 1px solid #176B87;
     padding: 25px;
     border-radius: 12px;
-
     text-decoration: none;
     color: #DAFFFB;
-
     transition: 0.25s;
+
+    /* keeps cards below navbar */
+    position: relative;
+    z-index: 1;
 }
 
 .service-card h3,
@@ -146,8 +159,8 @@ section {
 .project-card:hover {
     transform: translateY(-6px);
     border-color: #64CCC5;
+    z-index: 2;
 }
-
 
 /* ===== AUTHOR'S NOTES ===== */
 .notes-content {

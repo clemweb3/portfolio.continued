@@ -44,7 +44,7 @@ section {
 /* ===== NAVBAR ===== */
 .navbar {
     width: 100%;
-    padding: 20px 10%;
+    padding: 20px 5%;
     position: fixed;
     top: 0;
     left: 0;
@@ -82,21 +82,30 @@ section {
 
 /* Hamburger button (hidden on desktop) */
 .nav-toggle {
+    position: relative;
+    width: 30px;
+    height: 24px; /* enough to fit 3 bars */
     display: none;
     flex-direction: column;
+    justify-content: space-between; /* evenly spaces bars vertically */
     cursor: pointer;
-    gap: 5px;
-    z-index: 1000;
 }
 
 .nav-toggle span {
-    display: block;
+    position: absolute;
+    left: 0;
+    width: 100%;
     height: 3px;
-    width: 25px;
     background: #E5E9F0;
     border-radius: 2px;
     transition: 0.3s;
 }
+
+.nav-toggle span:nth-child(1) { top: 0; }
+.nav-toggle span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+.nav-toggle span:nth-child(3) { bottom: 0; }
+
+
 
 /* ===== MOBILE NAV ===== */
 @media (max-width: 768px) {
@@ -114,6 +123,7 @@ section {
         opacity: 0;
         transform: translateY(-10px); /* reduced translate for better "X" alignment */
         transition: opacity 0.3s ease, transform 0.3s ease;
+        display: flex;
     }
 
     .nav-links.active {
@@ -127,9 +137,10 @@ section {
     }
 }
 
-/* Burger menu animation when active */
+/* ACTIVE STATE: clean X */
 .nav-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
 }
 
 .nav-toggle.active span:nth-child(2) {
@@ -137,7 +148,8 @@ section {
 }
 
 .nav-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
+    top: 50%;
+    transform: translateY(-50%) rotate(-45deg);
 }
 
 /* ===== HERO SECTION ===== */

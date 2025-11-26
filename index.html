@@ -7,7 +7,6 @@
     <title>Professional Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
 </head>
 
 <body>
@@ -15,6 +14,13 @@
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-logo">NIA &lt;/&gt;</div>
+
+        <!-- Hamburger menu toggle -->
+        <div class="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
 
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
@@ -38,15 +44,16 @@
                 I’m driven by feedback, iteration, and real impact.
             </p>
 
-            <a href="#view-case-studies" class="hero-btn">View Case Studies</a>
-            <a href="#download-resume" class="hero-btn">Download Resume</a>
+            <div class="hero-btn-container">
+                <a href="#view-case-studies" class="hero-btn">View Case Studies</a>
+                <a href="#download-resume" class="hero-btn">Download Resume</a>
+            </div>
         </div>
     </section>
 
     <!-- What I Do -->
     <section class="what-i-do" id="what-i-do">
         <h2 class="section-title">What I Do</h2>
-
         <div class="service-cards">
             <a href="#business-intelligence" class="service-card">
                 <h3>Business Intelligence</h3>
@@ -90,56 +97,54 @@
     <!-- Author's Notes -->
     <section class="authors-notes" id="authors-notes">
         <h2 class="section-title">Author's Notes</h2>
-
         <div class="notes-content">
             <p>I believe tools say something about the person who builds them.</p>
-
             <p>This site is a reflection of how I think. I like things clean but never passive, technical but still human,
-            structured but always adaptable and scalable. Every project here was a small obsession. I enjoy the process
-            of breaking a problem apart, shaping it, and seeing it become something that gives value to someone else.
-            This space grows with me. As I learn, I update. As I break things, I fix them. As I understand more, I write more.
-            Think of this as a living notebook.</p>
-
+                structured but always adaptable and scalable. Every project here was a small obsession. I enjoy the process
+                of breaking a problem apart, shaping it, and seeing it become something that gives value to someone else.
+                This space grows with me. As I learn, I update. As I break things, I fix them. As I understand more, I write more.
+                Think of this as a living notebook.</p>
             <p>I engineer with focus, iteration, and a bit of madness — a space shaped by obsession, thoughts refined by discipline.
-            This is the closest you’ll get to how my mind works.</p>
+                This is the closest you’ll get to how my mind works.</p>
         </div>
     </section>
 
     <!-- Contact -->
     <section class="contact" id="contact">
-    <h2 class="section-title">Contact</h2>
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-content">
+            <p>Let’s work together.</p>
 
-    <div class="contact-content">
-        <p>Let’s work together.</p>
+            <div class="contact-item">
+                <i class="fa-solid fa-envelope"></i>
+                <a href="shaniakeith23@gmail.com">shaniakeith23@gmail.com</a>
+            </div>
 
-        <div class="contact-item">
-            <i class="fa-solid fa-envelope"></i>
-            <a href="shaniakeith23@gmail.com">shaniakeith23@gmail.com</a>
+            <div class="contact-item">
+                <i class="fa-solid fa-phone"></i>
+                <a href="tel:+639064475715">+63 9064475715</a>
+            </div>
+
+            <div class="contact-item">
+                <i class="fa-brands fa-linkedin"></i>
+                <a href="https://www.linkedin.com/in/shania-keith-dela-vega-/" target="_blank">Shania Keith Dela Vega</a>
+            </div>
+
+            <div class="contact-item">
+                <i class="fa-brands fa-github"></i>
+                <a href="https://github.com/clemweb3" target="_blank">clemweb3</a>
+            </div>
+
+            <p class="center-this">Obsessed with process. Driven by results.</p>
         </div>
-
-        <div class="contact-item">
-            <i class="fa-solid fa-phone"></i>
-            <a href="tel:+639064475715">+63 9064475715</a>
-        </div>
-
-        <div class="contact-item">
-            <i class="fa-brands fa-linkedin"></i>
-            <a href="https://www.linkedin.com/in/shania-keith-dela-vega-/" target="_blank">Shania Keith Dela Vega</a>
-        </div>
-
-        <div class="contact-item">
-            <i class="fa-brands fa-github"></i>
-            <a href="https://github.com/clemweb3" target="_blank">clemweb3</a>
-        </div>
-
-        <p class="center-this">Obsessed with process. Driven by results.</p>
-    </div>
-</section>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
         <p>© 2025 Shania Keith Dela Vega. All Rights Reserved.</p>
     </footer>
+
+    <script src="js/main.js"></script>
 </body>
 
 </html>
